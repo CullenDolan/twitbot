@@ -31,7 +31,6 @@ def create_url(user_id, pagination_token):
         return "https://api.twitter.com/2/users/{}/tweets?max_results={}&pagination_token={}&exclude={}".format(user_id, max_results, pagination_token, exclude)
 
 
-
 def create_headers(BEARER_TOKEN):
     # requirements to authorize the api call
     headers = {"Authorization": "Bearer {}".format(BEARER_TOKEN)}
