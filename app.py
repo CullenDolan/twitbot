@@ -1,6 +1,5 @@
 from flask import Flask
 from user_tweets import get_user_tweets
-import json
 from get_user import convert_username_to_id
 
 app = Flask(__name__)
@@ -8,7 +7,8 @@ app = Flask(__name__)
 @app.route('/')
 def index():
     twitter_user_name = "chamath"
-    twitter_user_id = convert_username_to_id(twitter_user_name)
+    twitter_user_id = '3291691'
+    #twitter_user_id = convert_username_to_id(twitter_user_name)
     # call a function from a different file
     returned_tweets = get_user_tweets(twitter_user_id)
     return returned_tweets

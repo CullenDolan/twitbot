@@ -9,8 +9,7 @@ def get_user_tweets(func_input):
     BEARER_TOKEN = 'AAAAAAAAAAAAAAAAAAAAACcvKQEAAAAAeh2CeFCS9U8JFAOLqW4kI3icfrg%3Dl7dxrNDY0MdfUOIAQhFmS6jEPgcIsZ5BJyEGVtWzDfs3niaqMC'
     pagination_token = ''
     json_response = build_full_api_call(user_id, BEARER_TOKEN, pagination_token)
-    tweet_response = json_response['data']
-    return tweet_response
+    return json_response
 
 
 def build_full_api_call(user_id, BEARER_TOKEN, pagination_token):
