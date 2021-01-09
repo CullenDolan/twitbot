@@ -6,14 +6,13 @@ def convert_username_to_id(user_name):
     url = create_url(user_name)
     headers = create_headers(BEARER_TOKEN)
     json_response = connect_to_endpoint(url, headers)
-    #json_response = json.dumps(json_response['data']['id'])
-    print(json_response)
+    return json_response
 
 
 def create_url(user_name):
     usernames = "usernames="+user_name
     user_fields = "user.fields=description,created_at"
-    url = "https://api.twitter.com/2/users/by?{}&{}".format(usernames, user_fields)
+    url = "https://api.twitter.com/2/users/by?{}".format(usernames)
     return url
 
 def create_headers(bearer_token):
