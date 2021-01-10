@@ -2,13 +2,21 @@
 This is a function to get twitter data from the api and return it to a flask app
 '''
 import requests
+import os
+
+
+# To set your enviornment variables in your terminal run the following line:
+# export 'BEARER_TOKEN'='<your_bearer_token>'
+def auth():
+    return os.environ.get("BEARER_TOKEN")
+
 
 def get_user_tweets(func_input):
     # main function to be called in the app.py file
     user_id = func_input
-    BEARER_TOKEN = 'AAAAAAAAAAAAAAAAAAAAACcvKQEAAAAAeh2CeFCS9U8JFAOLqW4kI3icfrg%3Dl7dxrNDY0MdfUOIAQhFmS6jEPgcIsZ5BJyEGVtWzDfs3niaqMC'
+    bearer_token = auth()
     pagination_token = ''
-    json_response = build_full_api_call(user_id, BEARER_TOKEN, pagination_token)
+    json_response = build_full_api_call(user_id, bearer_token, pagination_token)
     return json_response
 
 
